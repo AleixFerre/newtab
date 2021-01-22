@@ -1,7 +1,7 @@
 let timeTxt;
 let champName;
-const url = "http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json";
-const url2 = "http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/";
+const url = "https://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json";
+const url2 = "https://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/";
 
 function preload() {
     httpDo(url, {
