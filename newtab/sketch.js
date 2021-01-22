@@ -1,5 +1,6 @@
 let timeTxt;
 let champName;
+let names;
 const url = "https://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json";
 const url2 = "https://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/";
 
@@ -10,7 +11,9 @@ function preload() {
 }
 
 function gotNames(res) {
-    champName = randomProperty(res.data).name.replace(" ", "");
+    console.log("Cached all the names");
+    names = res.data;
+    champName = randomProperty(names).id;
     console.log(champName);
     httpDo(url2 + champName + '.json', {
         method: 'GET'
@@ -25,7 +28,19 @@ function gotChamp(res) {
     document.body.style.backgroundImage = "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + champName + "_" + index + ".jpg')";
 }
 
+function changeBG() {
+    console.log("Pressed");
+    champName = randomProperty(names).id;
+    console.log(champName);
+    httpDo(url2 + champName + '.json', {
+        method: 'GET'
+    }, gotChamp)
+}
+
 function setup() {
+
+    window.addEventListener("dblclick", changeBG);
+
     noCanvas();
     timeTxt = document.getElementById("h");
     updateDate();
@@ -37,7 +52,9 @@ function draw() {
 
 function pad(num, size) {
     num = num.toString();
-    while (num.length < size) num = "0" + num;
+    while (num.length < size) {
+        num = "0" + num;
+    }
     return num;
 }
 
