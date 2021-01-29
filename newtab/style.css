@@ -4,20 +4,40 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    
+    text-shadow: 5px 5px 5px black;
+}
+
+.topleft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-align: center;
 }
 
 .abs-center {
     position: absolute;
-    top: 50%;
+    top: 45%;
     bottom: 0px;
     width: 99%;
-    height: 50%;
-    font-size: 50pt;
+    height: 49%;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-align: center;
 }
 
 .abs-center > h1 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
-    text-align: center;
-    text-shadow: 10px 10px 10px black;
+    font-size: 100pt;
+}
+
+.abs-center > h2 {
+    font-size: 50pt;
 }

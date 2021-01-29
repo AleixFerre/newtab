@@ -1,6 +1,7 @@
-let timeTxt;
 let champName;
 let names;
+let timeTxt;
+const myName = "Aleix";
 const url = "https://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json";
 const url2 = "https://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/";
 
@@ -21,6 +22,11 @@ function gotNames(res) {
 }
 
 function gotChamp(res) {
+    console.log(res.data[champName]);
+
+    document.getElementById("champName").innerHTML = champName;
+    document.getElementById("champTitle").innerHTML = res.data[champName].title;
+
     let skins = res.data[champName].skins;
     let chosenSkin = randomProperty(skins);
     let index = chosenSkin.num;
@@ -39,10 +45,11 @@ function changeBG() {
 
 function setup() {
 
+    timeTxt = document.getElementById("h");
     window.addEventListener("dblclick", changeBG);
+    document.getElementById("greetings").innerHTML = `${saludar(hour())}, ${myName}!`;
 
     noCanvas();
-    timeTxt = document.getElementById("h");
     updateDate();
 }
 
@@ -65,4 +72,16 @@ function randomProperty(obj) {
 
 function updateDate() {
     timeTxt.innerHTML = `${pad(hour(), 2)}:${pad(minute(), 2)}:${pad(second(), 2)}`;
+}
+
+function saludar(h) {
+    if (h >= 0 && h <= 5) {
+        return "Bona nit";
+    } else if (h <= 14) {
+        return "Bon dia";
+    } else if (h <= 21) {
+        return "Bona tarda";
+    } else {
+        return "Bona nit";
+    }
 }
