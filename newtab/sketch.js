@@ -24,7 +24,7 @@ function gotNames(res) {
 function gotChamp(res) {
     console.log(res.data[champName]);
 
-    document.getElementById("champName").innerHTML = champName;
+    document.getElementById("champName").innerHTML = res.data[champName].name;
     document.getElementById("champTitle").innerHTML = res.data[champName].title;
 
     let skins = res.data[champName].skins;
