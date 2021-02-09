@@ -5,11 +5,15 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
 
-    -webkit-user-select: none; /* Safari */        
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-    
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+
     text-shadow: 5px 5px 5px black;
 }
 
@@ -34,10 +38,10 @@ body {
     text-align: center;
 }
 
-.abs-center > h1 {
+.abs-center>h1 {
     font-size: 100pt;
 }
 
-.abs-center > h2 {
+.abs-center>h2 {
     font-size: 50pt;
 }

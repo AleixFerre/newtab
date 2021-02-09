@@ -1,9 +1,9 @@
 {
-  "manifest_version": 2,
-  "name": "League of Legends themed Clock",
-  "description": "Get a new LoL background every new tab",
-  "version": "1.0",
-  "chrome_url_overrides": {
-    "newtab": "index.html"
-  }
+    "manifest_version": 2,
+    "name": "League of Legends themed Clock",
+    "description": "Get a new LoL background every new tab",
+    "version": "1.0",
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    }
 }

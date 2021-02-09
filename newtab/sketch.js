@@ -1,4 +1,5 @@
 let champName;
+let actualName = "New Tab";
 let names;
 let timeTxt;
 const myName = "Aleix";
@@ -25,6 +26,7 @@ function gotChamp(res) {
     console.log(res.data[champName]);
 
     document.getElementById("champName").innerHTML = res.data[champName].name;
+    actualName = res.data[champName].name
     document.getElementById("champTitle").innerHTML = res.data[champName].title;
 
     let skins = res.data[champName].skins;
@@ -71,7 +73,9 @@ function randomProperty(obj) {
 }
 
 function updateDate() {
-    timeTxt.innerHTML = `${pad(hour(), 2)}:${pad(minute(), 2)}:${pad(second(), 2)}`;
+    let time = `${pad(hour(), 2)}:${pad(minute(), 2)}:${pad(second(), 2)}`;
+    timeTxt.innerHTML = time;
+    document.title = actualName + " - " + time;
 }
 
 function saludar(h) {
