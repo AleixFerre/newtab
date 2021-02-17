@@ -29,7 +29,7 @@ body {
 
 .abs-center {
     position: absolute;
-    top: 45%;
+    top: 40%;
     bottom: 0px;
     width: 99%;
     height: 49%;
@@ -39,9 +39,11 @@ body {
 }
 
 .abs-center>h1 {
-    font-size: 100pt;
+    font-size: 10vw;
+    margin-bottom: 0px;
 }
 
 .abs-center>h2 {
-    font-size: 50pt;
+    font-size: 10vh;
+    margin-top: 2px;
 }

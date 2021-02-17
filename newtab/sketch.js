@@ -75,7 +75,7 @@ function randomProperty(obj) {
 function updateDate() {
     let time = `${pad(hour(), 2)}:${pad(minute(), 2)}:${pad(second(), 2)}`;
     timeTxt.innerHTML = time;
-    document.title = actualName + " - " + time;
+    document.title = "New Tab - " + time;
 }
 
 function saludar(h) {
