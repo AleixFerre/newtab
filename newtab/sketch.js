@@ -26,7 +26,7 @@ function gotChamp(res) {
     console.log(res.data[champName]);
 
     document.getElementById("champName").innerHTML = res.data[champName].name;
-    actualName = res.data[champName].name
+    actualName = res.data[champName].name;
     document.getElementById("champTitle").innerHTML = res.data[champName].title;
 
     let skins = res.data[champName].skins;
@@ -42,7 +42,7 @@ function changeBG() {
     console.log(champName);
     httpDo(url2 + champName + '.json', {
         method: 'GET'
-    }, gotChamp)
+    }, gotChamp);
 }
 
 function setup() {
