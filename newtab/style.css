@@ -30,7 +30,8 @@ body {
     bottom: 0px;
     width: 99%;
     height: 49%;
-    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    font-family: 'Anonymous Pro', monospace;
     color: white;
     text-align: center;
 }

@@ -49,7 +49,7 @@ function setup() {
 
     timeTxt = document.getElementById("h");
     window.addEventListener("dblclick", changeBG);
-    document.getElementById("greetings").innerHTML = `${saludar(hour())}, ${myName}!`;
+    document.getElementById("greetings").innerHTML = `${saludar(hour())} ${myName}!`;
 
     noCanvas();
     updateDate();
@@ -75,7 +75,10 @@ function randomProperty(obj) {
 function updateDate() {
     let time = `${pad(hour(), 2)}:${pad(minute(), 2)}:${pad(second(), 2)}`;
     timeTxt.innerHTML = time;
-    document.title = "New Tab - " + time;
+    let newName = "New Tab - " + time;
+    if (document.title != newName) {
+        document.title = newName;
+    }
 }
 
 function saludar(h) {
