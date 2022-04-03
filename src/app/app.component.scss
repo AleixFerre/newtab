@@ -8,19 +8,6 @@
   background-attachment: fixed;
 }
 
-// Maybe rework this to use ts variables instead of hardcoded classes
-.bg-1 {
-  background: url("/assets/backgrounds/1.jpg");
-}
-
-.bg-2 {
-  background: url("/assets/backgrounds/2.jpg");
-}
-
-.bg-3 {
-  background: url("/assets/backgrounds/3.jpg");
-}
-
 .center {
   opacity: 1;
   position: absolute;

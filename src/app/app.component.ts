@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,9 @@ export class AppComponent implements OnInit {
   time: string = '';
   date: string = '';
 
-  backgroundClass = `background bg-${this.getRandom(3)}`;
+  backgroundStyle = `url(${environment.root}assets/backgrounds/${this.getRandom(
+    3
+  )}.jpg)`;
 
   ngOnInit(): void {
     this.updateTime();

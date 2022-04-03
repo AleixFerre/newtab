@@ -10,9 +10,13 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Build & Deploy
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run
+
+```sh
+ng deploy --base-href=https://aleixferre.github.io/custom-newtab-page/
+```
 
 ## Running unit tests
 
