@@ -1,7 +1,66 @@
+.background {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+// Maybe rework this to use ts variables instead of hardcoded classes
+.bg-1 {
+  background: url("/assets/backgrounds/1.jpg");
+}
+
+.bg-2 {
+  background: url("/assets/backgrounds/2.jpg");
+}
+
+.bg-3 {
+  background: url("/assets/backgrounds/3.jpg");
+}
+
 .center {
+  opacity: 1;
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  animation-name: entrance;
+  animation-duration: 2s;
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    top: 30%;
+    font-size: 0px;
+  }
+  75% {
+    opacity: 0.8;
+    top: 10%;
+  }
+  100% {
+    opacity: 1;
+    top: 20%;
+  }
+}
+
+.text {
+  color: white;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.title {
+  font-size: 10em;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.subtitle {
+  font-size: 3em;
+  font-weight: lighter;
+  margin-top: 0px;
 }
