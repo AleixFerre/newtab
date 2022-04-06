@@ -16,18 +16,18 @@
   transform: translate(-50%, -50%);
   text-align: center;
   animation-name: entrance;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 @keyframes entrance {
   0% {
     opacity: 0;
-    top: 30%;
     font-size: 0px;
   }
   75% {
-    opacity: 0.8;
-    top: 10%;
+    opacity: 0.9;
+    font-size: 1.05rem;
+    top: 15%;
   }
   100% {
     opacity: 1;
@@ -37,12 +37,12 @@
 
 .text {
   color: white;
-  text-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 
 .title {
   font-size: 10em;
-  font-weight: bold;
+  font-weight: lighter;
   margin-bottom: 0px;
 }
 
@@ -50,4 +50,22 @@
   font-size: 3em;
   font-weight: lighter;
   margin-top: 0px;
+  font-family: "Lato", Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 20%, transparent);
+}
+
+.bookmarks {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
 }

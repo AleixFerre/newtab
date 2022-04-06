@@ -1,6 +1,8 @@
 <div class="background" [ngStyle]="{ background: backgroundStyle }">
+  <app-toolbar class="toolbar"></app-toolbar>
+  <app-bookmarks class="bookmarks"></app-bookmarks>
   <div class="center">
-    <h2 class="text title">{{ time }}</h2>
+    <h2 class="text title">{{ hour }} : {{ min }}</h2>
     <h2 class="text subtitle">{{ date }}</h2>
   </div>
 </div>
