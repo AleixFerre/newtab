@@ -20,15 +20,14 @@
 }
 
 .toolbar {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
   display: flex;
   flex-direction: column;
-  color: white;
-  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   width: 20%;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+  height: 100%;
 }
 
 @keyframes entrance {
@@ -49,8 +48,8 @@
 
 .bookmarks {
   position: absolute;
+  transform: translate(-50%, -50%);
   top: 60%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 60%;
 }
