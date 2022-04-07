@@ -5,18 +5,30 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
 }
 
-.center {
+.clock {
   opacity: 1;
   position: absolute;
   top: 20%;
   left: 50%;
+  width: 60%;
   transform: translate(-50%, -50%);
   text-align: center;
   animation-name: entrance;
   animation-duration: 1s;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
 }
 
 @keyframes entrance {
@@ -35,37 +47,10 @@
   }
 }
 
-.text {
-  color: white;
-  text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
-}
-
-.title {
-  font-size: 10em;
-  font-weight: lighter;
-  margin-bottom: 0px;
-}
-
-.subtitle {
-  font-size: 3em;
-  font-weight: lighter;
-  margin-top: 0px;
-  font-family: "Lato", Roboto, "Helvetica Neue", sans-serif !important;
-}
-
-.toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 20%, transparent);
-}
-
 .bookmarks {
   position: absolute;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 60%;
 }
