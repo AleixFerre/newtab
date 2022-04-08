@@ -18,8 +18,6 @@ export class BookmarksComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<any>) {
-    console.log('drop', event.item);
-
     this.bookmarks[event.previousContainer.data.index] =
       event.container.data.item;
     this.bookmarks[event.container.data.index] =

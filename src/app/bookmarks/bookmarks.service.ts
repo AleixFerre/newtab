@@ -33,7 +33,7 @@ export class BookmarksService {
    */
   public getBookmarksInitDefault(): Bookmark[] {
     const bookmarks = this.getAllBookmarks();
-    if (!bookmarks) {
+    if (bookmarks.length === 0) {
       this.restoreDefaultBookmarks();
       return defaultBookmarks;
     }
