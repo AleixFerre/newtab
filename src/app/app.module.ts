@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
@@ -20,7 +21,13 @@ import { BookmarkItemNewComponent } from './bookmarks/bookmark-item-new/bookmark
     ClockComponent,
     BookmarkItemNewComponent,
   ],
-  imports: [BrowserModule, MatIconModule, HttpClientModule, MatButtonModule],
+  imports: [
+    BrowserModule,
+    MatIconModule,
+    HttpClientModule,
+    MatButtonModule,
+    DragDropModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

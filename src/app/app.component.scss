@@ -32,16 +32,12 @@
 
 @keyframes entrance {
   0% {
-    opacity: 0;
-    font-size: 0px;
+    top: 15%;
   }
   75% {
-    opacity: 0.9;
-    font-size: 1.05rem;
     top: 15%;
   }
   100% {
-    opacity: 1;
     top: 20%;
   }
 }

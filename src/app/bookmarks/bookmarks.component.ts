@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bookmark } from './bookmark-item/bookmark.model';
 import { BookmarksService } from './bookmarks.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-bookmarks',
@@ -13,7 +14,15 @@ export class BookmarksComponent implements OnInit {
   constructor(private bookmarksService: BookmarksService) {}
 
   ngOnInit(): void {
-    this.bookmarksService.addDefaultBookmarksIfFirstEntry();
-    this.bookmarks = this.bookmarksService.getAllBookmarks();
+    this.bookmarks = this.bookmarksService.getBookmarksInitDefault();
+  }
+
+  drop(event: CdkDragDrop<any>) {
+    console.log('drop', event.item);
+
+    this.bookmarks[event.previousContainer.data.index] =
+      event.container.data.item;
+    this.bookmarks[event.container.data.index] =
+      event.previousContainer.data.item;
   }
 }

@@ -25,10 +25,19 @@ export class BookmarksService {
     return JSON.parse(localStorage.getItem(BOOKMARKS_ID) ?? '[]') as Bookmark[];
   }
 
-  public addDefaultBookmarksIfFirstEntry(): void {
-    if (!localStorage.getItem(BOOKMARKS_ID)) {
+  /**
+   * Checks if there is already Bookmarks in localStorage.
+   *
+   * If there's none, it initializes with default values;
+   * else it returns the existing Bookmarks.
+   */
+  public getBookmarksInitDefault(): Bookmark[] {
+    const bookmarks = this.getAllBookmarks();
+    if (!bookmarks) {
       this.restoreDefaultBookmarks();
+      return defaultBookmarks;
     }
+    return bookmarks;
   }
 
   public restoreDefaultBookmarks(): void {
