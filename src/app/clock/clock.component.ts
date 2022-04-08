@@ -6,12 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clock.component.scss'],
 })
 export class ClockComponent implements OnInit {
-  hour: string = '';
-  min: string = '';
-  sec: string = '';
-  date: string = '';
-
-  constructor() {}
+  hour = '';
+  min = '';
+  sec = '';
+  date = '';
 
   ngOnInit(): void {
     this.updateTime(); // First time loading the page

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bookmark } from './bookmark-item/bookmark.model';
 import { BookmarksService } from './bookmarks.service';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-bookmarks',
@@ -17,6 +17,7 @@ export class BookmarksComponent implements OnInit {
     this.bookmarks = this.bookmarksService.getBookmarksInitDefault();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   drop(event: CdkDragDrop<any>) {
     this.bookmarks[event.previousContainer.data.index] =
       event.container.data.item;

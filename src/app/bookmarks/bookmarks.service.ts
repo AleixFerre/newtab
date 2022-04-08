@@ -8,8 +8,6 @@ const BOOKMARKS_ID = 'bookmarks';
   providedIn: 'root',
 })
 export class BookmarksService {
-  constructor() {}
-
   public getBookmark(id: number): Bookmark {
     const bookmarkJSON = localStorage.getItem(id.toString());
     return JSON.parse(bookmarkJSON ?? '{}') as Bookmark;

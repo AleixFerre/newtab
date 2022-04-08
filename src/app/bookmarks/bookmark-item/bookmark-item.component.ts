@@ -11,8 +11,6 @@ export class BookmarkItemComponent implements OnInit {
 
   faviconUrl = '';
 
-  constructor() {}
-
   ngOnInit(): void {
     this.faviconUrl = `https://icon.horse/icon/${this.removeHttpFrom(
       this.bookmark.url
