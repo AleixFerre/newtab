@@ -10,8 +10,29 @@
   border-radius: 1rem;
   text-align: center;
   padding: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .bookmark {
   flex: 1 auto;
+}
+
+//============= Scrollbar =============
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(43, 43, 43);
 }

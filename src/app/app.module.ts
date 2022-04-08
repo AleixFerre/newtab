@@ -9,6 +9,7 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { BookmarkItemComponent } from './bookmarks/bookmark-item/bookmark-item.component';
 import { ClockComponent } from './clock/clock.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BookmarkItemNewComponent } from './bookmarks/bookmark-item-new/bookmark-item-new.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     BookmarksComponent,
     BookmarkItemComponent,
     ClockComponent,
+    BookmarkItemNewComponent,
   ],
   imports: [BrowserModule, MatIconModule, HttpClientModule, MatButtonModule],
   providers: [],
