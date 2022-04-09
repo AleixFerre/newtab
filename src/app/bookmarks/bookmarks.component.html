@@ -12,5 +12,8 @@
       </app-bookmark-item>
     </div>
   </ng-container>
-  <app-bookmark-item-new class="bookmark"></app-bookmark-item-new>
+  <app-bookmark-item-new
+    class="bookmark"
+    (click)="openNewItemModal()"
+  ></app-bookmark-item-new>
 </div>

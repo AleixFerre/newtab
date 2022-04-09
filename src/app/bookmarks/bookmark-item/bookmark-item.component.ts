@@ -12,12 +12,12 @@ export class BookmarkItemComponent implements OnInit {
   faviconUrl = '';
 
   ngOnInit(): void {
-    this.faviconUrl = `https://icon.horse/icon/${this.removeHttpFrom(
+    this.faviconUrl = `https://icon.horse/icon/${this.removeHttp(
       this.bookmark.url
     )}`;
   }
 
-  removeHttpFrom(url: string): string {
+  private removeHttp(url: string): string {
     return url.replace('http://www.', '').replace('https://www.', '');
   }
 }

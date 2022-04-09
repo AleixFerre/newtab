@@ -8,17 +8,6 @@ const BOOKMARKS_ID = 'bookmarks';
   providedIn: 'root',
 })
 export class BookmarksService {
-  public getBookmark(id: number): Bookmark {
-    const bookmarkJSON = localStorage.getItem(id.toString());
-    return JSON.parse(bookmarkJSON ?? '{}') as Bookmark;
-  }
-
-  public addBookmark(bookmark: Bookmark): void {
-    const bookmarks = this.getAllBookmarks();
-    bookmarks.push(bookmark);
-    this.updateBookmarks(bookmarks);
-  }
-
   public getAllBookmarks(): Bookmark[] {
     return JSON.parse(localStorage.getItem(BOOKMARKS_ID) ?? '[]') as Bookmark[];
   }
@@ -40,29 +29,27 @@ export class BookmarksService {
 
   public restoreDefaultBookmarks(): void {
     localStorage.removeItem(BOOKMARKS_ID);
-    localStorage.setItem(BOOKMARKS_ID, JSON.stringify(defaultBookmarks));
+    this.updateBookmarks(defaultBookmarks);
   }
 
-  public removeBookmark(id: number): void {
-    const bookmarks = this.getAllBookmarks();
-    bookmarks.splice(id, 1);
-    this.updateBookmarks(bookmarks);
-  }
-
-  public editBookmark(index: number, bookmark: Bookmark): void {
-    const bookmarks = this.getAllBookmarks();
-    bookmarks[index] = bookmark;
-    this.updateBookmarks(bookmarks);
-  }
-
-  public moveBookmark(from: number, to: number): void {
-    const bookmarks = this.getAllBookmarks();
-    const bookmark = bookmarks.splice(from, 1)[0];
-    bookmarks.splice(to, 0, bookmark);
-    this.updateBookmarks(bookmarks);
-  }
-
-  private updateBookmarks(bookmarks: Bookmark[]): void {
-    localStorage.setItem(BOOKMARKS_ID, JSON.stringify(bookmarks));
+  /**
+   * Updates the Bookmarks in localStorage.
+   *
+   * @returns A string if there's an error, else null.
+   */
+  public updateBookmarks(bookmarks: Bookmark[]): string | null {
+    try {
+      localStorage.setItem(BOOKMARKS_ID, JSON.stringify(bookmarks));
+      return null;
+    } catch (error) {
+      console.error(error);
+      if (typeof error === 'string') {
+        return error;
+      } else if (error instanceof Error) {
+        return error.message;
+      } else {
+        return 'Unknown error';
+      }
+    }
   }
 }
