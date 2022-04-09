@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { SettingsPanelComponent } from './toolbar/settings-panel/settings-panel.component';
 import { NewBookmarkPanelComponent } from './bookmarks/new-bookmark-panel/new-bookmark-panel.component';
+import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NewBookmarkPanelComponent } from './bookmarks/new-bookmark-panel/new-bo
     BookmarkItemNewComponent,
     SettingsPanelComponent,
     NewBookmarkPanelComponent,
+    WeatherWidgetComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-export const defaultBookmarks = [
+export const defaultSettings = [
   {
     name: 'Google',
     url: 'https://www.google.com',

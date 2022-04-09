@@ -8,11 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit {
   backgroundStyle = '';
+  backgroundQuality = '4k';
 
   ngOnInit(): void {
-    this.backgroundStyle = `url(${
-      environment.root
-    }assets/backgrounds/${this.getRandom(4)}.png)`;
+    this.backgroundStyle = `url(${environment.root}assets/backgrounds/${this.backgroundQuality}/1.jpg)`;
   }
 
   // Returns a random number between 1 and n

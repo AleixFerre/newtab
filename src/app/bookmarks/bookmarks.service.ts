@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import defaultBookmarks from './bookmark-defaults.model';
+import { defaultBookmarks } from './bookmark-defaults.model';
 import { Bookmark } from './bookmark-item/bookmark.model';
 
 const BOOKMARKS_ID = 'bookmarks';
