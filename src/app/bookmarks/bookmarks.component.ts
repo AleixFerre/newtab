@@ -22,7 +22,11 @@ export class BookmarksComponent implements OnInit {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  drop(event: CdkDragDrop<any>) {
+  drop(event: CdkDragDrop<any>): void {
+    if (event.previousContainer.data.index === event.container.data.index) {
+      return;
+    }
+
     this.bookmarks[event.previousContainer.data.index] =
       event.container.data.item;
     this.bookmarks[event.container.data.index] =

@@ -19,9 +19,11 @@ export class ToolbarComponent {
       })
       .afterClosed()
       .subscribe((result) => {
-        this._snackBar.open(result ?? 'Changes discarted', 'OK', {
-          duration: 5000,
-        });
+        if (result) {
+          this._snackBar.open(result, 'OK', {
+            duration: 5000,
+          });
+        }
       });
   }
 }

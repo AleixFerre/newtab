@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../toolbar/settings-panel/settings.service';
 
 @Component({
   selector: 'app-clock',
@@ -11,7 +12,13 @@ export class ClockComponent implements OnInit {
   sec = '';
   date = '';
 
+  constructor(private settingsService: SettingsService) {}
+
   ngOnInit(): void {
+    this.settingsService.updatedSettings$.subscribe((settings) => {
+      console.log('Settings updated', settings);
+    });
+
     this.updateTime(); // First time loading the page
     setTimeout(() => {
       this.updateTime(); // After waiting to the end of the second

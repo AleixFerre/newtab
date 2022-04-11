@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
-import { defaultSettings } from './bookmark-defaults.model';
-import { Setting } from './setting.model';
+import { Subject } from 'rxjs';
+import { defaultSettings } from './settings-defaults.model';
+import { Settings } from './settings.model';
 
-const SETTINGS_ID = '';
+const SETTINGS_ID = 'settings';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SettingsService {
-  public getAllSettings(): Setting[] {
-    return JSON.parse(localStorage.getItem(SETTINGS_ID) ?? '[]') as Setting[];
+  public updatedSettings$: Subject<Settings>;
+
+  constructor() {
+    this.updatedSettings$ = new Subject<Settings>();
   }
 
-  /**
-   * Checks if there is already Settings in localStorage.
-   *
-   * If there's none, it initializes with default values;
-   * else it returns the existing Settings.
-   */
-  public getSettingsInitDefault(): Setting[] {
-    const settings = this.getAllSettings();
-    if (settings.length === 0) {
+  public getAllSettings(): Settings {
+    const settings = localStorage.getItem(SETTINGS_ID);
+    return JSON.parse(settings ?? '{}') as Settings;
+  }
+
+  public settingsInitDefault(): void {
+    const settings = localStorage.getItem(SETTINGS_ID);
+    if (!settings) {
       this.restoreDefaultSettings();
-      return defaultSettings;
     }
-    return settings;
   }
 
   public restoreDefaultSettings(): void {
@@ -37,9 +37,10 @@ export class SettingsService {
    *
    * @returns A string if there's an error, else null.
    */
-  public updateSettings(settings: Setting[]): string | null {
+  public updateSettings(settings: Settings): string | null {
     try {
       localStorage.setItem(SETTINGS_ID, JSON.stringify(settings));
+      this.updatedSettings$.next(settings);
       return null;
     } catch (error) {
       console.error(error);

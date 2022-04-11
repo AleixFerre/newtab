@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   color: white;
+  row-gap: 1rem;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.4),
@@ -10,7 +11,7 @@
   border-radius: 1rem;
   text-align: center;
   padding: 1rem;
-  max-height: 30vh;
+  max-height: 40vh;
   overflow-y: auto;
 }
 
