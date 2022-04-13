@@ -15,7 +15,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 Run
 
 ```sh
-ng deploy --base-href=https://aleixferre.github.io/custom-newtab-page/
+ng deploy --base-href=https://aleixferre.github.io/newtab/
 ```
 
 ## Running unit tests
