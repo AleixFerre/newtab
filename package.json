@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "deploy": "ng build --prod",
     "d": "ng deploy --base-href=https://aleixferre.github.io/newtab/",
-    "local": "ng build --output-path=dist/local --base-href=D:/GitProjects/custom-newtab-page/dist/local/",
+    "local": "ng build --output-path=dist/local --base-href=D:/GitProjects/newtab/dist/local/",
     "test": "ng test"
   },
   "private": true,
