@@ -13,6 +13,15 @@ export class WeatherService {
   constructor(private httpClient: HttpClient) {}
 
   public getWeather(lat: number, lon: number): Observable<WeatherResponse> {
-    return this.httpClient.post<WeatherResponse>(API_LINK, { lat, lon });
+    return environment.production
+      ? this.httpClient.post<WeatherResponse>(API_LINK, { lat, lon })
+      : this.testingWeather();
+  }
+
+  private testingWeather(): Observable<WeatherResponse> {
+    return this.httpClient.post<WeatherResponse>(
+      `${environment.API_LINK}api/test/`,
+      { lat: 0, lon: 0 }
+    );
   }
 }

@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { NewBookmarkPanelComponent } from '../new-bookmark-panel/new-bookmark-panel.component';
 
 @Component({
   selector: 'app-bookmark-item-new',
@@ -6,9 +8,16 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./bookmark-item-new.component.scss'],
 })
 export class BookmarkItemNewComponent {
-  @Output() click = new EventEmitter();
+  constructor(private dialog: MatDialog) {}
 
   newBookmarkClick() {
-    this.click.emit();
+    this.dialog
+      .open(NewBookmarkPanelComponent)
+      .afterClosed()
+      .subscribe((result) => {
+        if (result) {
+          console.log(result);
+        }
+      });
   }
 }

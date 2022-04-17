@@ -1,1 +1,41 @@
-<p>new-bookmark-panel works!</p>
+<h2 class="title">New Bookmark</h2>
+<span class="subtitle">Set up your bookmark here!</span>
+<mat-divider class="divider"></mat-divider>
+<mat-dialog-content>
+  <form>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [formControl]="titleControl" required />
+      <mat-error *ngIf="titleControl.hasError('required')">
+        The title is required.
+      </mat-error>
+      <mat-error *ngIf="titleControl.hasError('maxlength')">
+        The title has more than 50 characters.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Link</mat-label>
+      <input matInput [formControl]="urlControl" required />
+      <mat-error *ngIf="urlControl.hasError('required')">
+        The link is required.
+      </mat-error>
+      <mat-error *ngIf="urlControl.hasError('pattern')">
+        This is not a link. Please type a valid url.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-divider class="divider"></mat-divider>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Discard</button>
+  <button
+    mat-raised-button
+    (click)="saveAndCloseSettings()"
+    cdkFocusInitial
+    color="warn"
+    class="save-btn"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

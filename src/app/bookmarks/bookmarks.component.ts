@@ -14,11 +14,14 @@ export class BookmarksComponent implements OnInit {
 
   constructor(
     private bookmarksService: BookmarksService,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     this.bookmarks = this.bookmarksService.getBookmarksInitDefault();
+    this.bookmarksService.onUpdateBookmarks.subscribe((bookmarks) => {
+      this.bookmarks = bookmarks;
+    });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,12 +38,8 @@ export class BookmarksComponent implements OnInit {
     this.openSnackBar(message ?? 'Bookmarks updated successfully');
   }
 
-  openNewItemModal() {
-    this.openSnackBar('TODO: Open new item modal here');
-  }
-
   openSnackBar(message: string) {
-    this._snackBar.open(message, 'OK', {
+    this.snackBar.open(message, 'OK', {
       duration: 5000,
     });
   }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { defaultBookmarks } from './bookmark-defaults.model';
 import { Bookmark } from './bookmark-item/bookmark.model';
 
@@ -8,6 +9,14 @@ const BOOKMARKS_ID = 'bookmarks';
   providedIn: 'root',
 })
 export class BookmarksService {
+  public onUpdateBookmarks = new Subject<Bookmark[]>();
+
+  public addBookmark(bookmark: Bookmark): void {
+    const bookmarks = this.getAllBookmarks();
+    bookmarks.push(bookmark);
+    this.updateBookmarks(bookmarks);
+  }
+
   public getAllBookmarks(): Bookmark[] {
     return JSON.parse(localStorage.getItem(BOOKMARKS_ID) ?? '[]') as Bookmark[];
   }
@@ -40,6 +49,7 @@ export class BookmarksService {
   public updateBookmarks(bookmarks: Bookmark[]): string | null {
     try {
       localStorage.setItem(BOOKMARKS_ID, JSON.stringify(bookmarks));
+      this.onUpdateBookmarks.next(bookmarks);
       return null;
     } catch (error) {
       console.error(error);

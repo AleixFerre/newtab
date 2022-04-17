@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { BookmarksService } from 'src/app/bookmarks/bookmarks.service';
 import { Settings } from './settings.model';
 import { SettingsService } from './settings.service';
 
@@ -14,7 +16,9 @@ export class SettingsPanelComponent {
 
   constructor(
     private dialogRef: MatDialogRef<SettingsPanelComponent>,
-    private settingsService: SettingsService
+    private snackBar: MatSnackBar,
+    private settingsService: SettingsService,
+    private bookmarksService: BookmarksService
   ) {
     this.settings = this.settingsService.getAllSettings();
   }
@@ -26,5 +30,19 @@ export class SettingsPanelComponent {
   saveAndCloseSettings() {
     this.settingsService.updateSettings(this.settings);
     this.dialogRef.close('Settings updated successfully');
+  }
+
+  restoreDefaultBookmarks() {
+    const currentBookmarks = this.bookmarksService.getAllBookmarks();
+    this.bookmarksService.restoreDefaultBookmarks();
+    this.closeSettings();
+    this.snackBar
+      .open('Default bookmarks restored successfully', 'UNDO', {
+        duration: 10000,
+      })
+      .onAction()
+      .subscribe(() => {
+        this.bookmarksService.updateBookmarks(currentBookmarks);
+      });
   }
 }

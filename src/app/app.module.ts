@@ -21,6 +21,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { SettingsPanelComponent } from './toolbar/settings-panel/settings-panel.component';
 import { NewBookmarkPanelComponent } from './bookmarks/new-bookmark-panel/new-bookmark-panel.component';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { WeatherWidgetComponent } from './weather-widget/weather-widget.componen
     MatDividerModule,
     MatSlideToggleModule,
     MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

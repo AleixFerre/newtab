@@ -60,6 +60,19 @@
       <mat-label>Background quality</mat-label>
     </mat-form-field>
   </div>
+
+  <mat-divider class="divider"></mat-divider>
+  <h3 class="setting-title">Bookmarks</h3>
+  <div class="grid">
+    <button
+      mat-raised-button
+      color="warn"
+      class="warnBtn"
+      (click)="restoreDefaultBookmarks()"
+    >
+      Restore default bookmarks
+    </button>
+  </div>
 </mat-dialog-content>
 <mat-divider class="divider"></mat-divider>
 <mat-dialog-actions align="end">

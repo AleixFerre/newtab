@@ -9,7 +9,7 @@ import { SettingsPanelComponent } from './settings-panel/settings-panel.componen
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent {
-  constructor(private dialog: MatDialog, private _snackBar: MatSnackBar) {}
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) {}
 
   openSettings() {
     this.dialog
@@ -20,7 +20,7 @@ export class ToolbarComponent {
       .afterClosed()
       .subscribe((result) => {
         if (result) {
-          this._snackBar.open(result, 'OK', {
+          this.snackBar.open(result, 'OK', {
             duration: 5000,
           });
         }
