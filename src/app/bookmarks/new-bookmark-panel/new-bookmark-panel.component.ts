@@ -27,6 +27,8 @@ export class NewBookmarkPanelComponent {
 
   saveAndCloseSettings() {
     if (!this.titleControl.valid || !this.urlControl.valid) {
+      this.titleControl.markAllAsTouched();
+      this.urlControl.markAllAsTouched();
       return;
     }
 

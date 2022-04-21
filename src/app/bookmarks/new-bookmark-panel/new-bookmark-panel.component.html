@@ -2,10 +2,10 @@
 <span class="subtitle">Set up your bookmark here!</span>
 <mat-divider class="divider"></mat-divider>
 <mat-dialog-content>
-  <form>
+  <form (keyup.enter)="saveAndCloseSettings()">
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>Title</mat-label>
-      <input matInput [formControl]="titleControl" required />
+      <input matInput [formControl]="titleControl" />
       <mat-error *ngIf="titleControl.hasError('required')">
         The title is required.
       </mat-error>
@@ -16,7 +16,7 @@
 
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>Link</mat-label>
-      <input matInput [formControl]="urlControl" required />
+      <input matInput [formControl]="urlControl" />
       <mat-error *ngIf="urlControl.hasError('required')">
         The link is required.
       </mat-error>
