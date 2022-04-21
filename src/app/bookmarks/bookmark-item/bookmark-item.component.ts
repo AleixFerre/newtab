@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookmarksService } from '../bookmarks.service';
 import { NewBookmarkPanelComponent } from '../new-bookmark-panel/new-bookmark-panel.component';
 import { Bookmark } from './bookmark.model';
@@ -19,7 +20,8 @@ export class BookmarkItemComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private bookmarksService: BookmarksService
+    private bookmarksService: BookmarksService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +53,15 @@ export class BookmarkItemComponent implements OnInit {
 
   removeBookmark() {
     this.matMenuTrigger.closeMenu();
+    const bookmarksCache = this.bookmarksService.getAllBookmarks();
     this.bookmarksService.removeBookmark(this.index);
+    this.snackBar
+      .open('Bookmark removed successfully', 'UNDO', {
+        duration: 5000,
+      })
+      .onAction()
+      .subscribe(() => {
+        this.bookmarksService.updateBookmarks(bookmarksCache);
+      });
   }
 }
