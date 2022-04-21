@@ -21,6 +21,9 @@ export class SettingsPanelComponent {
     private bookmarksService: BookmarksService
   ) {
     this.settings = this.settingsService.getAllSettings();
+    this.settingsService.updatedSettings$.subscribe((settings) => {
+      this.settings = settings;
+    });
   }
 
   closeSettings() {
@@ -30,6 +33,10 @@ export class SettingsPanelComponent {
   saveAndCloseSettings() {
     this.settingsService.updateSettings(this.settings);
     this.dialogRef.close('Settings updated successfully');
+  }
+
+  toggleShowWeatherShow() {
+    this.settings.weather.show = !this.settings.weather.show;
   }
 
   restoreDefaultBookmarks() {
@@ -43,6 +50,19 @@ export class SettingsPanelComponent {
       .onAction()
       .subscribe(() => {
         this.bookmarksService.updateBookmarks(currentBookmarks);
+      });
+  }
+
+  restoreDefaultSettings() {
+    const currentSettings = this.settingsService.getAllSettings();
+    this.settingsService.restoreDefaultSettings();
+    this.snackBar
+      .open('Default settings restored successfully', 'UNDO', {
+        duration: 10000,
+      })
+      .onAction()
+      .subscribe(() => {
+        this.settingsService.updateSettings(currentSettings);
       });
   }
 }

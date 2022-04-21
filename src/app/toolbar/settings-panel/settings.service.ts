@@ -20,11 +20,19 @@ export class SettingsService {
     return JSON.parse(settings ?? '{}') as Settings;
   }
 
-  public settingsInitDefault(): void {
-    const settings = localStorage.getItem(SETTINGS_ID);
-    if (!settings) {
+  /**
+   * Checks if there is already Settings in localStorage.
+   *
+   * If there's none, it initializes with default values;
+   * else it returns the existing Settings.
+   */
+  public getSettingsInitDefault(): Settings {
+    const settings = this.getAllSettings();
+    if (!settings.language) {
       this.restoreDefaultSettings();
+      return defaultSettings;
     }
+    return settings;
   }
 
   public restoreDefaultSettings(): void {

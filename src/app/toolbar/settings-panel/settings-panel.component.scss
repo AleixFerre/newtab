@@ -47,6 +47,12 @@
   background: rgb(0, 0, 0, 0.5);
 }
 
+.danger-zone {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .warnBtn {
+  flex: 1 auto;
   font-weight: bold;
 }

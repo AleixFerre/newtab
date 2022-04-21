@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Settings } from './toolbar/settings-panel/settings.model';
 import { SettingsService } from './toolbar/settings-panel/settings.service';
 
 @Component({
@@ -9,11 +10,15 @@ import { SettingsService } from './toolbar/settings-panel/settings.service';
 })
 export class AppComponent implements OnInit {
   backgroundStyle = '';
+  settings!: Settings;
 
   constructor(private settingsService: SettingsService) {}
 
   ngOnInit(): void {
-    this.settingsService.settingsInitDefault();
+    this.settings = this.settingsService.getSettingsInitDefault();
+    this.settingsService.updatedSettings$.subscribe((settings) => {
+      this.settings = settings;
+    });
     this.backgroundStyle = `url(${environment.root}assets/backgrounds/1.jpg)`;
   }
 

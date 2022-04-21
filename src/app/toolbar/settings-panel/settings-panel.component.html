@@ -2,7 +2,7 @@
 <span class="subtitle">Set up your application here!</span>
 <mat-divider class="divider"></mat-divider>
 <mat-dialog-content>
-  <h3 class="setting-title">Language</h3>
+  <!-- <h3 class="setting-title">Language</h3>
   <div class="grid">
     <mat-form-field>
       <mat-select>
@@ -27,21 +27,26 @@
     <mat-form-field>
       <mat-select>
         <mat-option value="none">Don't show</mat-option>
-        <!-- SEE MORE OPTIONS IN HERE -->
-        <!-- https://docs.oracle.com/cd/E41183_01/DR/Date_Format_Types.html -->
+        SEE MORE OPTIONS IN HERE -->
+  <!-- https://docs.oracle.com/cd/E41183_01/DR/Date_Format_Types.html
         <mat-option value="YYYY/MM/SS">YYYY/MM/SS</mat-option>
         <mat-option value="DD/MM/YYYY">DD/MM/YYYY</mat-option>
       </mat-select>
       <mat-label>Date format</mat-label>
     </mat-form-field>
-  </div>
+  </div> 
 
-  <mat-divider class="divider"></mat-divider>
+  <mat-divider class="divider"></mat-divider> -->
   <h3 class="setting-title">Weather Widget</h3>
   <div class="grid">
-    <mat-slide-toggle class="slider">Show weather</mat-slide-toggle>
+    <mat-slide-toggle
+      class="slider"
+      [checked]="settings.weather.show"
+      (change)="toggleShowWeatherShow()"
+      >Show weather</mat-slide-toggle
+    >
   </div>
-  <mat-divider class="divider"></mat-divider>
+  <!-- <mat-divider class="divider"></mat-divider>
   <h3 class="setting-title">Background</h3>
   <div class="grid">
     <mat-form-field>
@@ -59,18 +64,28 @@
       </mat-select>
       <mat-label>Background quality</mat-label>
     </mat-form-field>
-  </div>
+  </div> -->
 
   <mat-divider class="divider"></mat-divider>
-  <h3 class="setting-title">Bookmarks</h3>
-  <div class="grid">
+  <h3 class="setting-title">Danger zone</h3>
+  <div class="grid danger-zone">
     <button
       mat-raised-button
       color="warn"
       class="warnBtn"
       (click)="restoreDefaultBookmarks()"
     >
+      <mat-icon>bookmarks</mat-icon>
       Restore default bookmarks
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="warnBtn"
+      (click)="restoreDefaultSettings()"
+    >
+      <mat-icon>settings</mat-icon>
+      Restore default settings
     </button>
   </div>
 </mat-dialog-content>
