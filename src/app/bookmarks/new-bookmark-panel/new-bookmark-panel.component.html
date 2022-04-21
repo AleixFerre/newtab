@@ -3,7 +3,7 @@
 <mat-divider class="divider"></mat-divider>
 <mat-dialog-content>
   <form (keyup.enter)="saveAndCloseSettings()">
-    <mat-form-field class="full-width" appearance="fill">
+    <mat-form-field class="full-width" appearance="standard">
       <mat-label>Title</mat-label>
       <input matInput [formControl]="titleControl" />
       <mat-error *ngIf="titleControl.hasError('required')">
@@ -14,9 +14,9 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="full-width" appearance="fill">
-      <mat-label>Link</mat-label>
-      <input matInput [formControl]="urlControl" />
+    <mat-form-field class="full-width link-input" appearance="standard">
+      <span matPrefix>www.</span>
+      <input matInput [formControl]="urlControl" placeholder="google.com" />
       <mat-error *ngIf="urlControl.hasError('required')">
         The link is required.
       </mat-error>

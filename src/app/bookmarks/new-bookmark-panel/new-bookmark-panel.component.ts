@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { BookmarksService } from '../bookmarks.service';
 
-const urlRegex = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+const urlRegex = '([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
 
 @Component({
   selector: 'app-new-bookmark-panel',
@@ -34,10 +34,14 @@ export class NewBookmarkPanelComponent {
 
     this.bookmarksService.addBookmark({
       name: this.titleControl.value,
-      url: this.urlControl.value,
+      url: this.normalizeURL(this.urlControl.value),
     });
 
     this.close();
+  }
+
+  normalizeURL(value: string): string {
+    return `https://www.${value}`;
   }
 
   close() {
