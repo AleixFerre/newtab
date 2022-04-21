@@ -7,8 +7,13 @@
       [cdkDropListData]="{ item: bookmark, index: i }"
       (cdkDropListDropped)="drop($event)"
     >
-      <app-bookmark-item cdkDrag [bookmark]="bookmark" class="bookmark inner">
-        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      <app-bookmark-item
+        cdkDrag
+        [bookmark]="bookmark"
+        [index]="i"
+        class="bookmark"
+      >
+        <div *cdkDragPlaceholder class="placeholder"></div>
       </app-bookmark-item>
     </div>
   </ng-container>

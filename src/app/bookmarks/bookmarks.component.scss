@@ -57,12 +57,8 @@
 }
 
 .placeholder {
-  flex: 1 0 5rem;
-  margin: 5px;
-  height: 5rem;
-  text-align: center;
-  line-height: 5rem;
-  border: 1px;
+  opacity: 0.4;
+  border: 1px solid rgb(255, 100, 100);
 }
 
 .cdk-drag-animating {

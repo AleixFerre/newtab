@@ -17,6 +17,18 @@ export class BookmarksService {
     this.updateBookmarks(bookmarks);
   }
 
+  public removeBookmark(index: number): void {
+    const bookmarks = this.getAllBookmarks();
+    bookmarks.splice(index, 1);
+    this.updateBookmarks(bookmarks);
+  }
+
+  public updateBookmark(index: number, bookmark: Bookmark): void {
+    const bookmarks = this.getAllBookmarks();
+    bookmarks[index] = bookmark;
+    this.updateBookmarks(bookmarks);
+  }
+
   public getAllBookmarks(): Bookmark[] {
     return JSON.parse(localStorage.getItem(BOOKMARKS_ID) ?? '[]') as Bookmark[];
   }

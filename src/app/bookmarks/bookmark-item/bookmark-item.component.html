@@ -1,6 +1,26 @@
-<a mat-button [href]="bookmark.url" class="bookmark">
+<a
+  mat-button
+  [href]="bookmark.url"
+  class="bookmark"
+  (contextmenu)="onRightClick($event, bookmark)"
+>
   <img [src]="faviconUrl" class="image" /> <br />
   <span class="subtitle">
     {{ bookmark.name }}
   </span>
+
+  <!-- an hidden div is created to set the position of appearance of the menu-->
+  <div [matMenuTriggerFor]="rightMenu"></div>
+
+  <!-- standar material menu -->
+  <mat-menu #rightMenu="matMenu">
+    <ng-template matMenuContent let-item="bookmark">
+      <button mat-menu-item (click)="editBookmark()">
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+      <button mat-menu-item (click)="removeBookmark()" class="remove-button">
+        <mat-icon class="remove-button">delete</mat-icon>Delete
+      </button>
+    </ng-template>
+  </mat-menu>
 </a>
