@@ -15,8 +15,8 @@
     </mat-form-field>
 
     <mat-form-field class="full-width link-input" appearance="standard">
-      <span matPrefix>www.</span>
-      <input matInput [formControl]="urlControl" placeholder="google.com" />
+      <mat-label>Link</mat-label>
+      <input matInput [formControl]="urlControl" placeholder="www.google.com" />
       <mat-error *ngIf="urlControl.hasError('required')">
         The link is required.
       </mat-error>

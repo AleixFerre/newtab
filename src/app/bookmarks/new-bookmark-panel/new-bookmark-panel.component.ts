@@ -41,8 +41,12 @@ export class NewBookmarkPanelComponent implements OnInit {
 
     this.dialogRef.close({
       name: this.titleControl.value,
-      url: this.urlControl.value,
+      url: this.normalizeURL(this.urlControl.value),
     });
+  }
+
+  normalizeURL(value: string): string {
+    return value.replace('http://', '').replace('https://', '');
   }
 
   close() {

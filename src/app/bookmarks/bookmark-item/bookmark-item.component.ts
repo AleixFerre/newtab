@@ -25,7 +25,13 @@ export class BookmarkItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.faviconUrl = `https://icon.horse/icon/${this.bookmark.url}`;
+    this.faviconUrl = `https://icon.horse/icon/${this.removeHttp(
+      this.bookmark.url
+    )}`;
+  }
+
+  removeHttp(url: string) {
+    return url.replace('http://', '').replace('https://', '');
   }
 
   onRightClick(event: MouseEvent, bookmark: Bookmark) {
