@@ -1,5 +1,7 @@
-<h2 class="title">New Bookmark</h2>
-<span class="subtitle">Set up your bookmark here!</span>
+<h2 class="title">{{ data ? "Edit" : "New" }} Bookmark</h2>
+<span class="subtitle">
+  {{ data ? "Modify" : "Set up" }} your bookmark here!
+</span>
 <mat-divider class="divider"></mat-divider>
 <mat-dialog-content>
   <form (keyup.enter)="saveAndCloseSettings()">

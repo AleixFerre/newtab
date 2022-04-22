@@ -22,7 +22,7 @@ export class NewBookmarkPanelComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<NewBookmarkPanelComponent, Bookmark>,
-    @Inject(MAT_DIALOG_DATA) private data: { bookmark: Bookmark }
+    @Inject(MAT_DIALOG_DATA) public data: { bookmark: Bookmark }
   ) {}
 
   ngOnInit(): void {
