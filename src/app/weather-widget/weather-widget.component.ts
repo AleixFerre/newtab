@@ -10,6 +10,7 @@ import { WeatherService } from './services/weather.service';
 })
 export class WeatherWidgetComponent implements OnInit {
   info!: WeatherResponse;
+  message = 'Loading...';
   isLoading = true;
 
   constructor(
@@ -18,16 +19,20 @@ export class WeatherWidgetComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.geolocalizationService
-      .getPosition()
-      .subscribe((crd: GeolocationPosition) => {
+    this.geolocalizationService.getPosition().subscribe({
+      next: (crd: GeolocationPosition) => {
         this.weatherService
           .getWeather(crd.coords.latitude, crd.coords.longitude)
           .subscribe((data) => {
             this.info = data;
+            this.message = 'Widget ready!';
             this.isLoading = false;
           });
-      });
+      },
+      error: () => {
+        this.message = "Couldn't get your location";
+      },
+    });
   }
 
   fromKelvinToFahrenheit(temp: number): number {
