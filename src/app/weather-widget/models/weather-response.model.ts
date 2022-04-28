@@ -42,3 +42,7 @@ export interface WeatherResponse {
   name: string;
   cod: number;
 }
+
+export interface TimedWeatherResponse extends WeatherResponse {
+  timestamp: string;
+}
