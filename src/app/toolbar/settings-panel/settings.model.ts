@@ -38,7 +38,7 @@ export enum WeatherTheme {
 }
 
 export enum WeatherUnit {
-  KELVIN = 'standard',
-  CELCIUS = 'metric',
-  FAHRENHEIT = 'imperial',
+  Kelvin = 'standard',
+  Celcius = 'metric',
+  Fahrenheit = 'imperial',
 }
