@@ -51,6 +51,7 @@ export class SettingsService {
       this.updatedSettings$.next(settings);
       return null;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
       if (typeof error === 'string') {
         return error;

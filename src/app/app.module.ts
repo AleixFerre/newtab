@@ -24,6 +24,7 @@ import { WeatherWidgetComponent } from './weather-widget/weather-widget.componen
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NtTemperaturePipe } from './weather-widget/pipes/nt-temperature.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SettingsPanelComponent,
     NewBookmarkPanelComponent,
     WeatherWidgetComponent,
+    NtTemperaturePipe,
   ],
   imports: [
     BrowserModule,

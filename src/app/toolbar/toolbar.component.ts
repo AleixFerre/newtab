@@ -14,7 +14,7 @@ export class ToolbarComponent {
   openSettings() {
     this.dialog
       .open(SettingsPanelComponent, {
-        width: '100%',
+        width: '50%',
         disableClose: true,
       })
       .afterClosed()

@@ -24,16 +24,6 @@
       </mat-select>
       <mat-label>Hour format</mat-label>
     </mat-form-field>
-    <mat-form-field>
-      <mat-select>
-        <mat-option value="none">Don't show</mat-option>
-        SEE MORE OPTIONS IN HERE -->
-  <!-- https://docs.oracle.com/cd/E41183_01/DR/Date_Format_Types.html
-        <mat-option value="YYYY/MM/SS">YYYY/MM/SS</mat-option>
-        <mat-option value="DD/MM/YYYY">DD/MM/YYYY</mat-option>
-      </mat-select>
-      <mat-label>Date format</mat-label>
-    </mat-form-field>
   </div> 
 
   <mat-divider class="divider"></mat-divider> -->
@@ -43,28 +33,25 @@
       class="slider"
       [checked]="settings.weather.show"
       (change)="toggleShowWeatherShow()"
-      >Show weather</mat-slide-toggle
     >
+      Show weather
+    </mat-slide-toggle>
   </div>
-  <!-- <mat-divider class="divider"></mat-divider>
-  <h3 class="setting-title">Background</h3>
-  <div class="grid">
-    <mat-form-field>
-      <mat-select>
-        <mat-option value="static">Static</mat-option>
-        <mat-option value="random">Random</mat-option>
-      </mat-select>
-      <mat-label>Background pick</mat-label>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-select>
-        <mat-option value="low">Low</mat-option>
-        <mat-option value="hd">HD</mat-option>
-        <mat-option value="4k">4K</mat-option>
-      </mat-select>
-      <mat-label>Background quality</mat-label>
-    </mat-form-field>
-  </div> -->
+
+  <mat-form-field>
+    <mat-select
+      [value]="settings.weather.units"
+      (selectionChange)="changeWeatherUnits($event.value)"
+    >
+      <mat-option
+        *ngFor="let unit of WEATHER_UNITS | keyvalue"
+        [value]="unit.value"
+      >
+        {{ unit.key }}
+      </mat-option>
+    </mat-select>
+    <mat-label>Temperature units</mat-label>
+  </mat-form-field>
 
   <mat-divider class="divider"></mat-divider>
   <h3 class="setting-title">Danger zone</h3>

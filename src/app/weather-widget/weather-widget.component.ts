@@ -34,12 +34,4 @@ export class WeatherWidgetComponent implements OnInit {
       },
     });
   }
-
-  fromKelvinToFahrenheit(temp: number): number {
-    return Math.round((temp - 273.15) * 1.8 + 32);
-  }
-
-  fromKelvinToCelsius(temp: number): number {
-    return Math.round(temp - 273.15);
-  }
 }

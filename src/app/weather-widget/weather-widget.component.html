@@ -9,7 +9,7 @@
       class="icon"
     />
     <div class="details">
-      <p class="text title">{{ fromKelvinToCelsius(info.main.temp) }}ºC</p>
+      <p class="text title">{{ info.main.temp | ntTemperature }}</p>
       <p class="text">
         {{ info.name }}
       </p>

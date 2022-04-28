@@ -17,7 +17,7 @@ export const defaultSettings: Settings = {
   weather: {
     show: true,
     location: 'auto',
-    units: WeatherUnit.CELCIUS,
+    units: WeatherUnit.Celcius,
     theme: WeatherTheme.FULL,
   },
   background: {

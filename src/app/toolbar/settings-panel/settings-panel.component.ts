@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookmarksService } from 'src/app/bookmarks/bookmarks.service';
-import { Settings } from './settings.model';
+import { Settings, WeatherUnit } from './settings.model';
 import { SettingsService } from './settings.service';
 
 @Component({
@@ -13,6 +13,7 @@ import { SettingsService } from './settings.service';
 export class SettingsPanelComponent {
   settings: Settings;
   confirmDiscard = false;
+  WEATHER_UNITS = WeatherUnit;
 
   constructor(
     private dialogRef: MatDialogRef<SettingsPanelComponent>,
@@ -37,6 +38,10 @@ export class SettingsPanelComponent {
 
   toggleShowWeatherShow() {
     this.settings.weather.show = !this.settings.weather.show;
+  }
+
+  changeWeatherUnits(newUnit: WeatherUnit) {
+    this.settings.weather.units = newUnit;
   }
 
   restoreDefaultBookmarks() {
