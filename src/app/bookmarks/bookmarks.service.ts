@@ -17,6 +17,12 @@ export class BookmarksService {
     this.updateBookmarks(bookmarks);
   }
 
+  public duplicateBookmark(id: number): void {
+    const bookmarks = this.getAllBookmarks();
+    bookmarks.splice(id + 1, 0, bookmarks[id]);
+    this.updateBookmarks(bookmarks);
+  }
+
   public removeBookmark(index: number): void {
     const bookmarks = this.getAllBookmarks();
     bookmarks.splice(index, 1);
@@ -64,6 +70,7 @@ export class BookmarksService {
       this.onUpdateBookmarks.next(bookmarks);
       return null;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
       if (typeof error === 'string') {
         return error;

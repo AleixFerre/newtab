@@ -58,6 +58,14 @@ export class BookmarkItemComponent implements OnInit {
       });
   }
 
+  duplicateBookmark() {
+    this.matMenuTrigger.closeMenu();
+    this.bookmarksService.duplicateBookmark(this.index);
+    this.snackBar.open('Bookmark duplicated successfully', 'OK', {
+      duration: 5000,
+    });
+  }
+
   removeBookmark() {
     this.matMenuTrigger.closeMenu();
     const bookmarksCache = this.bookmarksService.getAllBookmarks();
