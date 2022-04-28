@@ -3,7 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Bookmark } from '../bookmark-item/bookmark.model';
 
-const urlRegex = '([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+const urlRegex =
+  /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g;
 
 @Component({
   selector: 'app-new-bookmark-panel',
