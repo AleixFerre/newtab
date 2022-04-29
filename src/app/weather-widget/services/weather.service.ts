@@ -7,7 +7,7 @@ import {
   WeatherResponse,
 } from '../models/weather-response.model';
 
-const API_LINK = `${environment.API_LINK}api/weather/`;
+const API_LINK = `${environment.API_LINK}api/weather`;
 const RELOAD_TIME = 1000 * 60 * 60; // 1 hour
 
 @Injectable({
@@ -29,22 +29,14 @@ export class WeatherService {
       });
     }
 
-    const weatherObservable = environment.production
-      ? this.httpClient.post<WeatherResponse>(API_LINK, { lat, lon })
-      : this.testingWeather();
+    const url = `${API_LINK}/${lat}/${lon}`;
+    const weatherObservable = this.httpClient.get<WeatherResponse>(url);
 
     weatherObservable.subscribe((weather) => {
       this.setLocalWeather(weather);
     });
 
     return weatherObservable;
-  }
-
-  private testingWeather(): Observable<WeatherResponse> {
-    return this.httpClient.post<WeatherResponse>(
-      `${environment.API_LINK}api/test/`,
-      { lat: 0, lon: 0 }
-    );
   }
 
   private getLocalWeather(): TimedWeatherResponse {

@@ -31,6 +31,7 @@
   <div class="grid">
     <mat-slide-toggle
       class="slider"
+      color="primary"
       [checked]="settings.weather.show"
       (change)="toggleShowWeatherShow()"
     >
@@ -91,7 +92,7 @@
     mat-raised-button
     (click)="saveAndCloseSettings()"
     cdkFocusInitial
-    color="warn"
+    color="primary"
     class="save-btn"
   >
     Save
