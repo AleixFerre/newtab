@@ -79,15 +79,20 @@
 </mat-dialog-content>
 <mat-divider class="divider"></mat-divider>
 <mat-dialog-actions align="end">
-  <button *ngIf="confirmDiscard" mat-button (click)="closeSettings()">
-    I'm sure
-  </button>
-  <button *ngIf="confirmDiscard" mat-button (click)="confirmDiscard = false">
-    Cancel
-  </button>
-  <button *ngIf="!confirmDiscard" mat-button (click)="confirmDiscard = true">
-    Discard
-  </button>
+  <ng-container
+    *ngIf="confirmDiscard; then confirmDiscardButtons; else discardButtons"
+  ></ng-container>
+  <ng-template #confirmDiscardButtons>
+    <button mat-button (click)="closeSettings()">I'm sure</button>
+    <button *ngIf="confirmDiscard" mat-button (click)="confirmDiscard = false">
+      Cancel
+    </button>
+  </ng-template>
+  <ng-template #discardButtons>
+    <button *ngIf="!confirmDiscard" mat-button (click)="confirmDiscard = true">
+      Discard
+    </button>
+  </ng-template>
   <button
     mat-raised-button
     (click)="saveAndCloseSettings()"
