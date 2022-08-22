@@ -23,8 +23,9 @@ import { NewBookmarkPanelComponent } from './bookmarks/new-bookmark-panel/new-bo
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NtTemperaturePipe } from './weather-widget/pipes/nt-temperature.pipe';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,10 @@ import { NtTemperaturePipe } from './weather-widget/pipes/nt-temperature.pipe';
     NewBookmarkPanelComponent,
     WeatherWidgetComponent,
     NtTemperaturePipe,
+    SearchBarComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
