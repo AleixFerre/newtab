@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatMenuTrigger } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookmarksService } from '../bookmarks.service';
 import { NewBookmarkPanelComponent } from '../new-bookmark-panel/new-bookmark-panel.component';
@@ -8,6 +9,7 @@ import { Bookmark } from './bookmark.model';
 
 @Component({
   selector: 'app-bookmark-item',
+  imports: [MatMenuModule, MatIconModule, MatMenuModule],
   templateUrl: './bookmark-item.component.html',
   styleUrls: ['./bookmark-item.component.scss'],
 })

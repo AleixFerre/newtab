@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherResponse } from './models/weather-response.model';
+import { NtTemperaturePipe } from './pipes/nt-temperature.pipe';
 import { GeolocalizationService } from './services/geolocalization.service';
 import { WeatherService } from './services/weather.service';
 
@@ -7,6 +8,7 @@ import { WeatherService } from './services/weather.service';
   selector: 'app-weather-widget',
   templateUrl: './weather-widget.component.html',
   styleUrls: ['./weather-widget.component.scss'],
+  imports: [NtTemperaturePipe],
 })
 export class WeatherWidgetComponent implements OnInit {
   info!: WeatherResponse;

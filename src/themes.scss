@@ -2,16 +2,18 @@
 
 @include mat.core();
 
-$my-primary: mat.define-palette(mat.$light-blue-palette, 200);
-$my-accent: mat.define-palette(mat.$orange-palette, A200, A100, A400);
-
-$my-theme: mat.define-dark-theme(
+$my-theme: mat.define-theme(
   (
     color: (
-      primary: $my-primary,
-      accent: $my-accent,
+      theme-type: light,
+      primary: mat.$blue-palette,
+      tertiary: mat.$orange-palette,
+      use-system-variables: true,
     ),
   )
 );
 
-@include mat.all-component-themes($my-theme);
+:root {
+  @include mat.all-component-themes($my-theme);
+  @include mat.system-level-colors($my-theme);
+}

@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatIconButton } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SettingsPanelComponent } from './settings-panel/settings-panel.component';
 
 @Component({
   selector: 'app-toolbar',
+  imports: [MatIconModule, MatIconButton, MatDialogModule],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
 })

@@ -1,11 +1,14 @@
 .bookmark {
-  font-family: "Montserrat", "Lato", Roboto, "Helvetica Neue", sans-serif; // Mat button overrides the font family
+  font-family: "Montserrat", "Lato", Roboto, "Helvetica Neue", sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: white;
   text-decoration: none;
   margin: 1rem;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .image {

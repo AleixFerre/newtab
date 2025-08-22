@@ -1,21 +1,21 @@
 <div #contenedor class="grid categories" cdkDropListGroup>
-  <ng-container *ngFor="let bookmark of bookmarks; let i = index">
+  @for (bookmark of bookmarks; track bookmark; let i = $index) {
     <div
       class="categories-item"
       cdkDropList
       cdkDropListOrientation="horizontal"
       [cdkDropListData]="{ item: bookmark, index: i }"
       (cdkDropListDropped)="drop($event)"
-    >
+      >
       <app-bookmark-item
         cdkDrag
         [bookmark]="bookmark"
         [index]="i"
         class="bookmark"
-      >
+        >
         <div *cdkDragPlaceholder class="placeholder"></div>
       </app-bookmark-item>
     </div>
-  </ng-container>
+  }
   <app-bookmark-item-new class="bookmark"></app-bookmark-item-new>
 </div>

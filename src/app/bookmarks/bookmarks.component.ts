@@ -1,11 +1,14 @@
+import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { BookmarkItemNewComponent } from './bookmark-item-new/bookmark-item-new.component';
+import { BookmarkItemComponent } from './bookmark-item/bookmark-item.component';
 import { Bookmark } from './bookmark-item/bookmark.model';
 import { BookmarksService } from './bookmarks.service';
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-bookmarks',
+  imports: [BookmarkItemComponent, BookmarkItemNewComponent, DragDropModule],
   templateUrl: './bookmarks.component.html',
   styleUrls: ['./bookmarks.component.scss'],
 })
