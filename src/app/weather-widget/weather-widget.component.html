@@ -1,18 +1,16 @@
-<div *ngIf="isLoading; else widgetDisplay">
-  <p class="text">{{ message }}</p>
-</div>
-
-<ng-template #widgetDisplay>
-  <div class="widget-display">
-    <img
-      src="https://openweathermap.org/img/wn/{{ info.weather[0].icon }}@2x.png"
-      class="icon"
-    />
-    <div class="details">
-      <p class="text title">{{ info.main.temp | ntTemperature }}</p>
-      <p class="text">
-        {{ info.name }}
-      </p>
-    </div>
+@if (isLoading) {
+<p class="text">{{ message }}</p>
+} @else {
+<div class="widget-display">
+  <img
+    src="https://openweathermap.org/img/wn/{{ info.weather[0].icon }}@2x.png"
+    class="icon"
+  />
+  <div class="details">
+    <p class="text title">{{ info.main.temp | ntTemperature }}</p>
+    <p class="text">
+      {{ info.name }}
+    </p>
   </div>
-</ng-template>
+</div>
+}

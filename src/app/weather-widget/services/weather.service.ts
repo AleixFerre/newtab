@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import {
@@ -14,7 +14,7 @@ const RELOAD_TIME = 1000 * 60 * 60; // 1 hour
   providedIn: 'root',
 })
 export class WeatherService {
-  constructor(private httpClient: HttpClient) {}
+  private httpClient = inject(HttpClient);
 
   public getWeather(lat: number, lon: number): Observable<WeatherResponse> {
     const weather = this.getLocalWeather();

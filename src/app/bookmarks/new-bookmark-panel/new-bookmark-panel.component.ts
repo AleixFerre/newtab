@@ -1,13 +1,23 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { urlRegex } from '../bookmark-defaults.model';
 import { Bookmark } from '../bookmark-item/bookmark.model';
-
-const urlRegex =
-  /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g;
 
 @Component({
   selector: 'app-new-bookmark-panel',
+  imports: [
+    MatDividerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './new-bookmark-panel.component.html',
   styleUrls: ['./new-bookmark-panel.component.scss'],
 })
@@ -41,8 +51,8 @@ export class NewBookmarkPanelComponent implements OnInit {
     }
 
     this.dialogRef.close({
-      name: this.titleControl.value,
-      url: this.normalizeURL(this.urlControl.value),
+      name: this.titleControl.value!,
+      url: this.normalizeURL(this.urlControl.value!),
     });
   }
 

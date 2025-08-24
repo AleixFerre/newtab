@@ -1,12 +1,30 @@
+import { KeyValuePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { BookmarksService } from 'src/app/bookmarks/bookmarks.service';
 import { Settings, WeatherUnit } from './settings.model';
 import { SettingsService } from './settings.service';
 
 @Component({
   selector: 'app-settings-panel',
+  imports: [
+    MatSnackBarModule,
+    MatDividerModule,
+    MatDialogModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatIconModule,
+    MatButtonModule,
+    KeyValuePipe,
+  ],
   templateUrl: './settings-panel.component.html',
   styleUrls: ['./settings-panel.component.scss'],
 })

@@ -5,26 +5,34 @@
 <mat-divider class="divider"></mat-divider>
 <mat-dialog-content>
   <form (keyup.enter)="saveAndCloseSettings()">
-    <mat-form-field class="full-width" appearance="standard">
+    <mat-form-field class="full-width" appearance="fill">
       <mat-label>Title</mat-label>
       <input matInput [formControl]="titleControl" />
-      <mat-error *ngIf="titleControl.hasError('required')">
-        The title is required.
-      </mat-error>
-      <mat-error *ngIf="titleControl.hasError('maxlength')">
-        The title has more than 50 characters.
-      </mat-error>
+      @if (titleControl.hasError('required')) {
+        <mat-error>
+          The title is required.
+        </mat-error>
+      }
+      @if (titleControl.hasError('maxlength')) {
+        <mat-error>
+          The title has more than 50 characters.
+        </mat-error>
+      }
     </mat-form-field>
 
-    <mat-form-field class="full-width link-input" appearance="standard">
+    <mat-form-field class="full-width link-input" appearance="fill">
       <mat-label>Link</mat-label>
       <input matInput [formControl]="urlControl" placeholder="www.google.com" />
-      <mat-error *ngIf="urlControl.hasError('required')">
-        The link is required.
-      </mat-error>
-      <mat-error *ngIf="urlControl.hasError('pattern')">
-        This is not a link. Please type a valid url.
-      </mat-error>
+      @if (urlControl.hasError('required')) {
+        <mat-error>
+          The link is required.
+        </mat-error>
+      }
+      @if (urlControl.hasError('pattern')) {
+        <mat-error>
+          This is not a link. Please type a valid url.
+        </mat-error>
+      }
     </mat-form-field>
   </form>
 </mat-dialog-content>
@@ -37,7 +45,7 @@
     cdkFocusInitial
     color="warn"
     class="save-btn"
-  >
+    >
     Save
   </button>
 </mat-dialog-actions>

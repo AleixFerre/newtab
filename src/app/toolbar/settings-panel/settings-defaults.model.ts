@@ -15,7 +15,7 @@ export const defaultSettings: Settings = {
     dateFormat: ClockDateFormat.FULL,
   },
   weather: {
-    show: true,
+    show: false,
     location: 'auto',
     units: WeatherUnit.Celcius,
     theme: WeatherTheme.FULL,

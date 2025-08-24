@@ -2,31 +2,6 @@
 <span class="subtitle">Set up your application here!</span>
 <mat-divider class="divider"></mat-divider>
 <mat-dialog-content>
-  <!-- <h3 class="setting-title">Language</h3>
-  <div class="grid">
-    <mat-form-field>
-      <mat-select>
-        <mat-option value="en">English</mat-option>
-        <mat-option value="ca">Català</mat-option>
-        <mat-option value="es">Español</mat-option>
-      </mat-select>
-      <mat-label>Language</mat-label>
-    </mat-form-field>
-  </div>
-  <mat-divider class="divider"></mat-divider>
-  <h3 class="setting-title">Clock</h3>
-  <div class="grid">
-    <mat-slide-toggle class="slider">Show seconds</mat-slide-toggle>
-    <mat-form-field>
-      <mat-select>
-        <mat-option value="12">12 hour</mat-option>
-        <mat-option value="24">24 hour</mat-option>
-      </mat-select>
-      <mat-label>Hour format</mat-label>
-    </mat-form-field>
-  </div> 
-
-  <mat-divider class="divider"></mat-divider> -->
   <h3 class="setting-title">Weather Widget</h3>
   <div class="grid">
     <mat-slide-toggle
@@ -34,7 +9,7 @@
       color="primary"
       [checked]="settings.weather.show"
       (change)="toggleShowWeatherShow()"
-    >
+      >
       Show weather
     </mat-slide-toggle>
   </div>
@@ -43,13 +18,14 @@
     <mat-select
       [value]="settings.weather.units"
       (selectionChange)="changeWeatherUnits($event.value)"
-    >
-      <mat-option
-        *ngFor="let unit of WEATHER_UNITS | keyvalue"
-        [value]="unit.value"
       >
-        {{ unit.key }}
-      </mat-option>
+      @for (unit of WEATHER_UNITS | keyvalue; track unit) {
+        <mat-option
+          [value]="unit.value"
+          >
+          {{ unit.key }}
+        </mat-option>
+      }
     </mat-select>
     <mat-label>Temperature units</mat-label>
   </mat-form-field>
@@ -62,7 +38,7 @@
       color="warn"
       class="warnBtn"
       (click)="restoreDefaultBookmarks()"
-    >
+      >
       <mat-icon>bookmarks</mat-icon>
       Restore default bookmarks
     </button>
@@ -71,7 +47,7 @@
       color="warn"
       class="warnBtn"
       (click)="restoreDefaultSettings()"
-    >
+      >
       <mat-icon>settings</mat-icon>
       Restore default settings
     </button>
@@ -79,27 +55,27 @@
 </mat-dialog-content>
 <mat-divider class="divider"></mat-divider>
 <mat-dialog-actions align="end">
-  <ng-container
-    *ngIf="confirmDiscard; then confirmDiscardButtons; else discardButtons"
-  ></ng-container>
-  <ng-template #confirmDiscardButtons>
+  @if (confirmDiscard) {
     <button mat-button (click)="closeSettings()">I'm sure</button>
-    <button *ngIf="confirmDiscard" mat-button (click)="confirmDiscard = false">
-      Cancel
-    </button>
-  </ng-template>
-  <ng-template #discardButtons>
-    <button *ngIf="!confirmDiscard" mat-button (click)="confirmDiscard = true">
-      Discard
-    </button>
-  </ng-template>
+    @if (confirmDiscard) {
+      <button mat-button (click)="confirmDiscard = false">
+        Cancel
+      </button>
+    }
+  } @else {
+    @if (!confirmDiscard) {
+      <button mat-button (click)="confirmDiscard = true">
+        Discard
+      </button>
+    }
+  }
   <button
     mat-raised-button
     (click)="saveAndCloseSettings()"
     cdkFocusInitial
     color="primary"
     class="save-btn"
-  >
+    >
     Save
   </button>
 </mat-dialog-actions>

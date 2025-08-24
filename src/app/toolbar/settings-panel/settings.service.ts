@@ -9,11 +9,7 @@ const SETTINGS_ID = 'settings';
   providedIn: 'root',
 })
 export class SettingsService {
-  public updatedSettings$: Subject<Settings>;
-
-  constructor() {
-    this.updatedSettings$ = new Subject<Settings>();
-  }
+  public updatedSettings$ = new Subject<Settings>();
 
   public getAllSettings(): Settings {
     const settings = localStorage.getItem(SETTINGS_ID);
